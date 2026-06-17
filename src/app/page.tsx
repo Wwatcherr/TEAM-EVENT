@@ -11,7 +11,7 @@ import EventCard from "@/components/EventCard";
 
 export default function Home() {
   const { name } = useUser();
-  const { status: lockStatus } = useAppLock();
+  const { status: lockStatus, unlock } = useAppLock();
   const [events, setEvents] = useState<EventRow[]>([]);
   const [responses, setResponses] = useState<ResponseRow[]>([]);
   const [loading, setLoading] = useState(true);
@@ -60,7 +60,8 @@ export default function Home() {
     };
   }, [events]);
 
-  if (lockStatus !== "unlocked" || !name) return <NameGate />;
+  if (lockStatus !== "unlocked" || !name)
+    return <NameGate status={lockStatus} unlock={unlock} />;
 
   return (
     <>
