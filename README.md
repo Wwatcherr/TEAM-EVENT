@@ -9,7 +9,7 @@ Application web pour créer des événements d'équipe et laisser chaque membre 
 
 ## Stack technique
 
-- [Next.js](https://nextjs.org) (React) — interface
+- [Next.js](https://nextjs.org) (React) — i nterface
 - [Supabase](https://supabase.com) — base de données + temps réel (gratuit)
 - [Vercel](https://vercel.com) — hébergement (gratuit)
 - [GitHub](https://github.com) — stockage du code
