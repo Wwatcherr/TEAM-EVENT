@@ -2,11 +2,16 @@
 
 import { useState } from "react";
 import { useUser } from "@/lib/user-context";
-import { useAppLock } from "@/lib/use-app-lock";
+import { LockStatus } from "@/lib/use-app-lock";
 
-export default function NameGate() {
+export default function NameGate({
+  status,
+  unlock,
+}: {
+  status: LockStatus;
+  unlock: (password: string) => Promise<{ ok: boolean; error?: string }>;
+}) {
   const { setName } = useUser();
-  const { status, unlock } = useAppLock();
 
   const [password, setPassword] = useState("");
   const [passwordError, setPasswordError] = useState("");
